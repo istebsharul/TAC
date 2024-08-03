@@ -5,34 +5,6 @@ import Image from 'next/image';
 import Bac from '@/Components/BAC';
 
 function Services() {
-    const videoRef = useRef<HTMLIFrameElement | null>(null);
-
-    useEffect(() => {
-        const handlePlay = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry) => {
-                if (videoRef.current) {
-                    if (entry.isIntersecting) {
-                        videoRef.current.src += "&autoplay=1";
-                    } else {
-                        const tempSrc = videoRef.current.src;
-                        videoRef.current.src = "";
-                        videoRef.current.src = tempSrc;
-                    }
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(handlePlay, { threshold: 0.5 });
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
-
-        return () => {
-            if (videoRef.current) {
-                observer.unobserve(videoRef.current);
-            }
-        };
-    }, []);
 
     return (
         <div className='bg-[#1A1A1A]'>
@@ -78,7 +50,6 @@ function Services() {
             </div>
             <div className='relative pb-[56.25%] h-0 overflow-hidden max-w-full'>
                 <iframe
-                    ref={videoRef}
                     className='absolute top-0 left-0 w-full h-full'
                     src="https://res.cloudinary.com/dllddjxkf/video/upload/v1722684910/TAC/j3nf9fbpoforexj2rqlk.mp4?autoplay=0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
