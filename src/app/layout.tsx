@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/Components/Navbar";
+import Footer from "@/Components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="bg-[#1A1A1A] dark">
+      <body className={inter.className}>
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+        <Navbar/>
+        {children}
+        <Footer/>
+        </body>
     </html>
   );
 }
