@@ -29,13 +29,25 @@ export async function POST(req: NextRequest) {
         console.log(data);
 
         try {
-            const formMessage = data.message + data.services;
+            const serviceSelections = Object.keys(data.services)
+                .filter(service => data.services[service as keyof typeof data.services])
+                .map(service => service.replace(/([A-Z])/g, ' $1').toLowerCase())
+                .join(", ");
+
+            const customMessage = `
+                Name: ${data.firstName} ${data.lastName}
+                Email: ${data.email}
+                Company: ${data.companyName}
+                Phone: ${data.countryCode} ${data.phoneNumber}
+                Message: ${data.message}
+                Services: ${serviceSelections}
+            `;
 
             await transporter.sendMail({
                 ...mailOptions,
                 from: `"${data.firstName}" <${data.email}>`,
                 subject: 'New Contact Form Submission',
-                text: formMessage,
+                text: customMessage,
             });
 
             return NextResponse.json({ message: "Email sent Successfully" }, { status: 200 });
