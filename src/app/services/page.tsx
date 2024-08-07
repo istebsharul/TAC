@@ -3,6 +3,7 @@ import { GridBackgroundDemo } from '@/Components/UI/GridBackgroundDemo';
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Bac from '@/Components/BAC';
+import FeaturedArticles from '@/Components/FeaturedArticles';
 
 function Services() {
 
@@ -59,6 +60,7 @@ function Services() {
             <div>
                 <Bac />
             </div>
+            <FeaturedArticles/>
         </div>
     );
 }

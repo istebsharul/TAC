@@ -27,7 +27,7 @@ const services: ServiceItem[] = [
                 "https://res.cloudinary.com/drszvaldf/image/upload/v1720021528/TAC/c630ndj1ycsyfg3qiohu.png"
             ],
         redUrl:
-            "/service/digitalmarketing",
+            "/services/digitalmarketing",
     },
     {
         title: "Social Media Management",
@@ -36,7 +36,7 @@ const services: ServiceItem[] = [
         imageUrl:
             ["https://res.cloudinary.com/drszvaldf/image/upload/v1720021529/TAC/i9kxrs9voxyrexdktc7e.png",],
         redUrl:
-            "/service/socialmediamanagement",
+            "/services/socialmediamanagement",
     },
     {
         title: "Website Design and Development",
@@ -46,7 +46,7 @@ const services: ServiceItem[] = [
             ["https://res.cloudinary.com/drszvaldf/image/upload/v1720021528/TAC/pvg9yslptbsabrvs4er2.png",
                 "https://res.cloudinary.com/drszvaldf/image/upload/v1720021528/TAC/jxdqtucxnpuzwswmtbui.png"],
         redUrl:
-            "/service/development",
+            "/services/development",
     },
     {
         title: "Brand Identity",
@@ -55,7 +55,7 @@ const services: ServiceItem[] = [
         imageUrl:
             ["https://res.cloudinary.com/drszvaldf/image/upload/v1720021529/TAC/dw2bvejtfcxv8oibjlpa.png",],
         redUrl:
-            "/service/brandidentity",
+            "/services/brandidentity",
     },
 ];
 

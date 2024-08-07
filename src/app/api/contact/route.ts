@@ -1,7 +1,8 @@
-import ContactForm from "@/app/contact/page";
 import { NextRequest, NextResponse } from "next/server";
+import { transporter, mailOptions } from '@/utils/nodemailer';
 
-type FormData  = {
+
+type FormData = {
     firstName: string;
     lastName: string;
     companyName: string;
@@ -19,24 +20,33 @@ type FormData  = {
     };
 }
 
-export async function POST(req:NextRequest){
-    if(req.method === 'POST'){
-       const body = await req.json();
+export async function POST(req: NextRequest) {
+    if (req.method === 'POST') {
+        const body = await req.json();
 
-       const data : FormData = body;
+        const data: FormData = body;
 
-       console.log(data);
+        console.log(data);
 
-       try {
-        return NextResponse.json({message:data},{status:200});
-       } catch (error) {
-        return NextResponse.json({message:"Failed to Send Message",},{status:500})
-       }
-    }else{
-        return NextResponse.json({message:"Method Not Allowed!"},{status:405})
+        try {
+            // const formMessage = data.message + data.services;
+
+            await transporter.sendMail({
+                ...mailOptions,
+                from: `"${data.firstName}" <${data.email}>`,
+                subject: 'New Contact Form Submission',
+                text: data.message,
+            });
+
+            return NextResponse.json({ message: "Email sent Successfully" }, { status: 200 });
+        } catch (error) {
+            return NextResponse.json({ message: "Failed to Send Message",error}, { status: 500 })
+        }
+    } else {
+        return NextResponse.json({ message: "Method Not Allowed!" }, { status: 405 })
     }
 }
 
-export async function GET(){
-    return NextResponse.json({message:"Contact End Point is Working"},{status:200});
+export async function GET() {
+    return NextResponse.json({ message: "Contact End Point is Working" }, { status: 200 });
 }

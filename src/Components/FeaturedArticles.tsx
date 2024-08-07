@@ -18,7 +18,7 @@ const FeaturedArticles: React.FC = () => {
     ];
 
     return (
-        <div className='w-full flex justify-center items-center bg-[#1A1A1A]'>
+        <div className='w-full flex justify-center items-center bg-[#1A1A1A] py-20'>
             <div className="md:w-3/5 bg-[#1A1A1A] text-white p-10">
                 <div className="text-center">
                     <h2 className="flex md:flex-row justify-start items-center text-xl font-bold relative inline-block">

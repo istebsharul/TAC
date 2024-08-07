@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
         email: '',
         phoneNumber: '',
         message: 'Hello Tac Team,',
-        countryCode: '+1',
+        countryCode: '+91',
         services: {
             webDesign: false,
             digitalMarketing: false,
@@ -79,7 +79,7 @@ const ContactForm: React.FC = () => {
 
     const validateFormData = (data: FormData): Partial<FormData> => {
         const errors: Partial<FormData> = {};
-        
+
         // Check if all fields except phoneNumber are not empty
         if (data.firstName.trim() === '') errors.firstName = '';
         if (data.lastName.trim() === '') errors.lastName = '';
@@ -102,25 +102,38 @@ const ContactForm: React.FC = () => {
         try {
             // Validate the form data
             const errors = validateFormData(formData);
-            
+
             if (Object.keys(errors).length === 0) {
                 console.log('Form data:', formData);
+                console.log('Sending form data:', formData);
 
-                const response = await axios.post('/'); // Replace with actual endpoint
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData),
+                });
+        
+                if (response.ok) {
+                    console.log('Message sent successfully!');
+                    setFormData(initialFormData);
+                } else {
+                    console.error('Failed to Send message');
+                }
 
                 toast.success("Thank you for reaching out! We have received your message and will get back to you as soon as possible.");
                 setInvalidFields({});
-                // Add your form submission logic here
             } else {
                 console.log("Errrrrrr");
                 console.log(errors.email);
                 // Show specific error messages for invalid fields
-                if (errors.email==='') toast.error("Invalid email address. Please include '@'.");
-                if (errors.phoneNumber ==='') toast.error("Phone number must contain only numbers.");
-                if (errors.firstName ==='') toast.error("First name is required.");
-                if (errors.companyName ==='') toast.error("Company name is required.");
-                if (errors.message ==='') toast.error("Message cannot be empty.");
-                if (errors.countryCode ==='') toast.error("Country code is required.");
+                if (errors.email === '') toast.error("Invalid email address. Please include '@'.");
+                if (errors.phoneNumber === '') toast.error("Phone number must contain only numbers.");
+                if (errors.firstName === '') toast.error("First name is required.");
+                if (errors.companyName === '') toast.error("Company name is required.");
+                if (errors.message === '') toast.error("Message cannot be empty.");
+                if (errors.countryCode === '') toast.error("Country code is required.");
                 setInvalidFields(errors);  // Set invalid fields for highlighting
             }
         } catch (error) {
@@ -195,11 +208,59 @@ const ContactForm: React.FC = () => {
                                 name="countryCode"
                                 value={formData.countryCode}
                                 onChange={handleInputChange}
-                                className={`w-1/10 pl-3 pr-2 py-2 bg-transparent text-[#5A5A5A] border border-r-0 rounded-l-xl placeholder-[#5A5A5A] placeholder:text-sm focus:border-purple-500 ${invalidFields.countryCode ? 'border-red-500' : 'border-[#5A5A5A]'}`}
+                                className={`w-1/11 pl-3 pr-2 py-2 bg-transparent text-[#5A5A5A] border border-r-0 rounded-l-xl placeholder-[#5A5A5A] placeholder:text-sm focus:border-purple-500 ${invalidFields.countryCode ? 'border-red-500' : 'border-[#5A5A5A]'}`}
                             >
-                                <option value="+1">+1 (USA)</option>
                                 <option value="+91">+91 (India)</option>
+                                <option value="+1">+1 (USA)</option>
                                 <option value="+44">+44 (UK)</option>
+                                <option value="+61">+61 (Australia)</option>
+                                <option value="+55">+55 (Brazil)</option>
+                                <option value="+86">+86 (China)</option>
+                                <option value="+33">+33 (France)</option>
+                                <option value="+49">+49 (Germany)</option>
+                                <option value="+81">+81 (Japan)</option>
+                                <option value="+52">+52 (Mexico)</option>
+                                <option value="+7">+7 (Russia)</option>
+                                <option value="+27">+27 (South Africa)</option>
+                                <option value="+82">+82 (South Korea)</option>
+                                <option value="+34">+34 (Spain)</option>
+                                <option value="+46">+46 (Sweden)</option>
+                                <option value="+41">+41 (Switzerland)</option>
+                                <option value="+39">+39 (Italy)</option>
+                                <option value="+31">+31 (Netherlands)</option>
+                                <option value="+32">+32 (Belgium)</option>
+                                <option value="+47">+47 (Norway)</option>
+                                <option value="+48">+48 (Poland)</option>
+                                <option value="+45">+45 (Denmark)</option>
+                                <option value="+30">+30 (Greece)</option>
+                                <option value="+351">+351 (Portugal)</option>
+                                <option value="+64">+64 (New Zealand)</option>
+                                <option value="+90">+90 (Turkey)</option>
+                                <option value="+62">+62 (Indonesia)</option>
+                                <option value="+63">+63 (Philippines)</option>
+                                <option value="+66">+66 (Thailand)</option>
+                                <option value="+60">+60 (Malaysia)</option>
+                                <option value="+65">+65 (Singapore)</option>
+                                <option value="+51">+51 (Peru)</option>
+                                <option value="+57">+57 (Colombia)</option>
+                                <option value="+56">+56 (Chile)</option>
+                                <option value="+58">+58 (Venezuela)</option>
+                                <option value="+92">+92 (Pakistan)</option>
+                                <option value="+880">+880 (Bangladesh)</option>
+                                <option value="+98">+98 (Iran)</option>
+                                <option value="+964">+964 (Iraq)</option>
+                                <option value="+20">+20 (Egypt)</option>
+                                <option value="+212">+212 (Morocco)</option>
+                                <option value="+216">+216 (Tunisia)</option>
+                                <option value="+213">+213 (Algeria)</option>
+                                <option value="+254">+254 (Kenya)</option>
+                                <option value="+234">+234 (Nigeria)</option>
+                                <option value="+255">+255 (Tanzania)</option>
+                                <option value="+256">+256 (Uganda)</option>
+                                <option value="+971">+971 (United Arab Emirates)</option>
+                                <option value="+972">+972 (Israel)</option>
+                                <option value="+962">+962 (Jordan)</option>
+
                             </select>
                             <input
                                 type="tel"
@@ -207,7 +268,7 @@ const ContactForm: React.FC = () => {
                                 placeholder="Phone number"
                                 value={formData.phoneNumber}
                                 onChange={handleInputChange}
-                                className={`w-full pl-5 py-2 bg-transparent text-white border border-l-0 rounded-r-xl placeholder-[#5A5A5A] placeholder:text-sm focus:border-purple-500 ${invalidFields.phoneNumber ? 'border-red-500' : 'border-[#5A5A5A]'}`}
+                                className={`w-11/12 pl-5 py-2 bg-transparent text-white border border-l-0 rounded-r-xl placeholder-[#5A5A5A] placeholder:text-sm focus:border-purple-500 ${invalidFields.phoneNumber ? 'border-red-500' : 'border-[#5A5A5A]'}`}
                             />
                         </div>
                     </div>
