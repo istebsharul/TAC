@@ -29,13 +29,13 @@ export async function POST(req: NextRequest) {
         console.log(data);
 
         try {
-            // const formMessage = data.message + data.services;
+            const formMessage = data.message + data.services;
 
             await transporter.sendMail({
                 ...mailOptions,
                 from: `"${data.firstName}" <${data.email}>`,
                 subject: 'New Contact Form Submission',
-                text: data.message,
+                text: formMessage,
             });
 
             return NextResponse.json({ message: "Email sent Successfully" }, { status: 200 });
