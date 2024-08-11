@@ -8,13 +8,15 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-   <>
-      <Hero/>
-      <Hya/>
-      <TacApp/>
-      <Process/>
-      <FAQ/>
-      <FeaturedArticles/>
-   </>
+    <>
+      <Hero />
+      <section id="hya">
+        <Hya />
+      </section>
+      <TacApp />
+      <Process />
+      <FAQ />
+      <FeaturedArticles />
+    </>
   );
 }

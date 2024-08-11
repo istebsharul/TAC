@@ -84,7 +84,7 @@ const ContactForm: React.FC = () => {
         if (data.firstName.trim() === '') errors.firstName = '';
         if (data.lastName.trim() === '') errors.lastName = '';
         if (data.companyName.trim() === '') errors.companyName = '';
-        if (data.email.trim() === '' || !data.email.includes('@')) errors.email = '';
+        if (data.email.trim() === '' || !data.email.includes('@') || !data.email.includes('.')) errors.email = '';
         if (data.message.trim() === '') errors.message = '';
         if (data.countryCode.trim() === '') errors.countryCode = '';
 
@@ -148,9 +148,9 @@ const ContactForm: React.FC = () => {
     return (
         <>
             <div className="w-full flex flex-col justify-center items-center bg-[#1A1A1A] text-white mt-40">
-                <div>
+                <div className='flex flex-col justify-center items-center'>
                     <h1 className="md:text-[6rem] text-[3rem] font-bold mb-4 text-center text-purple-600">Get in touch</h1>
-                    <p className="mb-8 text-center">
+                    <p className="w-11/12 mb-8 text-center">
                         Ready to take your company to new heights? Our friendly support team is here to help you.
                     </p>
                 </div>

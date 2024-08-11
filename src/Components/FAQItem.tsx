@@ -41,8 +41,8 @@ const FAQ: React.FC = () => {
     return (
         <>
             <div className="md:w-full flex md:flex-row flex-col justify-center items-start text-white pt-40 mb-0 pb-0 md:px-[10rem] bg-[#1A1A1A]">
-                <div className='2xl:w-3/5 lg:w-4/5 flex md:flex-row flex-col'>
-                    <div className='md:w-1/2 w-full md:px-0 px-8 lg:text-[5.5rem] text-6xl flex flex-col md:justify-start justify-center items-start md:mr-5 mr-0'>
+                <div className='2xl:w-3/5 lg:w-3/5 flex md:flex-row flex-col'>
+                    <div className='md:w-1/2 w-full md:px-0 px-8 2xl:text-[5.5rem] lg:text-[4.5rem] text-6xl flex flex-col md:justify-start justify-center items-start md:mr-5 mr-0'>
                         <div>Why us,<br /> you ask?</div>
                         <div className='text-3xl py-2 left'>and other FAQs...</div>
                     </div>
@@ -51,7 +51,7 @@ const FAQ: React.FC = () => {
                             <div key={index} className="">
                                 <button
                                     onClick={() => toggleFAQ(index)}
-                                    className="flex justify-between items-start w-full py-2 text-left text-lg font-medium transition-transform duration-300"
+                                    className="flex justify-between items-start w-full py-2 text-left 2xl:text-lg lg:text-md font-medium transition-transform duration-300"
                                 >
                                     {item.question}
                                     <span className={`text-4xl transition-transform ml-2 font-light duration-300 ${expandedIndex === index ? 'rotate-45' : 'rotate-0'}`}>
@@ -70,10 +70,12 @@ const FAQ: React.FC = () => {
             </div>
             <div className='bg-[#1A1A1A] flex flex-col justify-center items-center py-20'>
                 <h1 className='mb-5'>Still got questions?</h1>
-                <button className='flex justify-center items-center px-4 py-2  rounded-3xl bg-gradient-to-r from-purple-800 to-purple-400 text-white transition duration-300 ease-in-out hover:from-purple-900 hover:to-purple-500'>
+                <a 
+                href="/contact"
+                className='flex justify-center items-center px-4 py-2  rounded-3xl bg-gradient-to-r from-purple-800 to-purple-400 text-white transition duration-300 ease-in-out hover:from-purple-900 hover:to-purple-500'>
                     Contact Us
                     <FaChevronRight />
-                </button>
+                </a>
             </div>
         </>
     );

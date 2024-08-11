@@ -28,26 +28,29 @@ const Process: React.FC = () => {
       <div className="text-xl font-medium mb-6 text-white">Our Process</div>
       {steps.map((step, index) => (
         <div
-          key={index}
-          className={`w-full max-w-4xl cursor-pointer transition-all duration-500`}
-          style={{
-            backgroundColor: colorsWithOpacity[index],
-            height: expandedCard === index ? '15rem' : '4rem',
-            borderRadius: index === 0 ? '1rem 1rem 0 0' : index === steps.length - 1 ? '0 0 1rem 1rem' : '0'
-          }}
-          onClick={() => toggleCard(index)}
+        key={index}
+        className={`w-full max-w-4xl cursor-pointer transition-all duration-500 flex flex-col items-center`}
+        style={{
+          backgroundColor: colorsWithOpacity[index],
+          height: expandedCard === index ? 'auto' : '4rem',
+          maxHeight: expandedCard === index ? '100%' : '4rem', // Ensures smooth height transition
+          overflow: 'hidden', // Hides overflowing content during transition
+          borderRadius: index === 0 ? '1rem 1rem 0 0' : index === steps.length - 1 ? '0 0 1rem 1rem' : '0'
+        }}
+        onClick={() => toggleCard(index)}
+      >
+        <h2 className={`text-2xl font-bold text-center relative py-3 ${expandedCard === index ? 'text-purple-600' : 'text-white'}`}>
+          {index + 1} - {step.title}
+        </h2>
+        <p
+          className={`w-3/5 text-md text-white text-center px-6 pt-6 py-12 transition-opacity duration-500 ${
+            expandedCard === index ? 'opacity-100' : 'opacity-0'
+          }`}
         >
-          <h2 className={`text-2xl font-bold text-center relative py-3 ${expandedCard ===index? 'text-purple-600' : 'text-white'}`}>
-            {index + 1} - {step.title}
-          </h2>
-          <p
-            className={`text-sm text-white text-center p-6 transition-opacity duration-500 ${
-              expandedCard === index ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            {step.content}
-          </p>
-        </div>
+          {step.content}
+        </p>
+      </div>
+      
       ))}
     </div>
   );

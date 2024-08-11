@@ -34,7 +34,7 @@ export default function DigitalMarketing() {
                             </defs>
                         </svg>
                     </div>
-                    <div className='w-full m-20 mt-40 flex flex-col justify-center items-center'>
+                    <div className='w-full m-20 2xl:mt-[17rem] mt-40 flex flex-col justify-center items-center'>
                         <h1 className="md:w-3/5 w-full md:text-7xl text-3xl font-medium m-6 px-10 relative leading-tight z-10">Transforming Vision into Digital Brilliance, One Click at a Time.</h1>
                         <p className="w-3/5 text-lg mb-8 relative z-10">
                             Guiding you through strategic digital transformations, we craft compelling narratives, build engaging experiences, and amplify your online presence, ensuring your brand not only adapts but excels in the ever-evolving digital landscape.

@@ -10,8 +10,8 @@ function NavBar() {
 
     // from-[#1A1A1A] to-black/3 bg-gradient-to-b from-[#1A1A1A] to-white/2
     return (
-        <nav className="w-full md:my-3 md:my-10 flex justify-center items-center md:bg-gradient-to-b fixed top-0 left-0 right-0 z-50">
-            <div className="w-full lg:w-3/5 md:flex md:justify-between md:items-center md:px-4 md:rounded-full md:bg-black/15 bg-[#1A1A1A] md:backdrop-blur-sm md:p-2 p-4">
+        <nav className="w-full md:pt-4  flex justify-center items-center md:bg-gradient-to-b fixed top-0 left-0 right-0 z-50 from-[#1A1A1A] to-white/1 bg-gradient-to-b md:backdrop-blur-sm">
+            <div className="w-full lg:w-3/5 md:flex md:justify-between md:items-center md:px-4 md:rounded-full md:p-2 p-4">
                 {/* LOGO */}
                 <div className='flex md:flex-col items-center justify-between md:py-1 md:block'>
                     <div className="w-[9rem]">
@@ -32,9 +32,11 @@ function NavBar() {
                 <div className={`transparent text-white flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'}`}>
                     <ul className="text-white text-sm md:h-fit items-center justify-center md:flex relative">
                         {['/services', '/about', '/blog', '/careers','/contact'].map((path, index) => (
-                            <li key={index} className={`pb-3 text-md py-2 md:px-6 text-center`}>
-                                <Link href={path} onClick={() => setNavbar(false)}>
-                                    <div className={`hover:text-purple-600 transform transition-transform hover:translate-y-1`}>
+                            <li key={index} className={`hover:text-purple-600 pb-3 text-md py-2 md:px-6 text-center transform transition-transform hover:translate-y-1`}>
+                                <Link href={path} onClick={() => {
+                                    setNavbar(false)
+                                }}>
+                                    <div>
                                         {path.slice(1) || 'Home'}
                                     </div>
                                 </Link>

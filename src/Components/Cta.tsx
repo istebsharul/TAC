@@ -8,14 +8,19 @@ function Cta() {
 
   return (
     <div className="flex items-center justify-center">
-      <Link href="/contact">
+      <Link
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        href="/contact"
+        className="px-6 py-3 text-white text-sm"
+      >
         <button
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          className="px-6 py-2 flex justify-center items-center rounded-full bg-gradient-to-r from-purple-800 to-purple-400 text-white text-xs transition duration-300 ease-in-out hover:from-purple-900 hover:to-purple-500"
+          className={`px-8 py-2 flex justify-center items-center rounded-full bg-gradient-to-r from-purple-800 to-purple-400 transition duration-300 ease-in-out ${
+            hovered ? 'from-purple-900 to-purple-500' : ''
+          }`}
         >
           {hovered ? "Let's TAC" : "Let's Talk"}
-          <FaChevronRight className='ml-1' />
+          <FaChevronRight className="ml-1" />
         </button>
       </Link>
     </div>

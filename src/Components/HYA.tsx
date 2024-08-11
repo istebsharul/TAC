@@ -1,5 +1,6 @@
-import React from 'react';
-import HyaCard from './HyaCard';
+"use client"
+import React, { useState } from 'react';
+import HyaCard from './ServiceCard';
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import Image from 'next/image';
@@ -60,6 +61,12 @@ const services: ServiceItem[] = [
 ];
 
 function Hya() {
+    const [hovered, setHovered] = useState(false);
+    const [hovered1, setHovered1] = useState(false);
+    const [hovered2, setHovered2] = useState(false);
+    const [hovered3, setHovered3] = useState(false);
+
+
     return (
         <>
             <div className="w-full flex justify-center items-center bg-[#1A1A1A]">
@@ -72,13 +79,20 @@ function Hya() {
                                 <h1 className="md:text-2xl text-xl">{services[0].title}</h1>
                                 <p className="font-light text-xs py-2">{services[0].description}</p>
                             </div>
-                            <div className="rounded-full p-3 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45">
-                                <Link href={services[0].redUrl}>
-                                    <div className="text-white transition-transform duration-300 ease-in-out hover:scale-150">
-                                        <FaChevronRight />
-                                    </div>
-                                </Link>
-                            </div>
+                            <Link
+                                onMouseEnter={() => setHovered(true)}
+                                onMouseLeave={() => setHovered(false)}
+                                href={services[0].redUrl}
+                                className="p-1 text-white flex justify-center items-center"
+                            >
+                                <div
+                                    className={`relative w-[2.8rem] h-[2.8rem] rounded-full pl-2 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45 transition-transform duration-300 ease-in-out hover:shadow-lg`}
+                                >
+                                    <FaChevronRight
+                                        className={`w-8 h-8 font-light transition-transform duration-100 ease-in-out ${hovered ? 'scale-50 translate-x-2' : ''}`}
+                                    />
+                                </div>
+                            </Link>
                         </div>
                         <div className="ml-[5rem] md:w-full md:h-full overflow-hidden w-full h-full relative">
                             {services[0].imageUrl.map((url, index) => (
@@ -101,13 +115,20 @@ function Hya() {
                                 <h1 className="md:text-2xl text-xl">{services[1].title}</h1>
                                 <p className="w-full font-light text-xs py-2">{services[1].description}</p>
                             </div>
-                            <div className="rounded-full p-3 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45">
-                                <Link href={services[1].redUrl}>
-                                    <div className="text-white transition-transform duration-300 ease-in-out hover:scale-150">
-                                        <FaChevronRight />
-                                    </div>
-                                </Link>
-                            </div>
+                            <Link
+                                onMouseEnter={() => setHovered1(true)}
+                                onMouseLeave={() => setHovered1(false)}
+                                href={services[1].redUrl}
+                                className="p-1 text-white flex justify-center items-center"
+                            >
+                                <div
+                                    className={`relative w-[2.8rem] h-[2.8rem] rounded-full pl-2 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45 transition-transform duration-300 ease-in-out hover:shadow-lg`}
+                                >
+                                    <FaChevronRight
+                                        className={`w-8 h-8 font-light transition-transform duration-100 ease-in-out ${hovered1 ? 'scale-50 translate-x-2' : ''}`}
+                                    />
+                                </div>
+                            </Link>
                         </div>
                         <div className="md:w-full md:h-full flex justify-center overflow-hidden w-full h-full relative">
                             {services[1].imageUrl.map((url, index) => (
@@ -129,13 +150,20 @@ function Hya() {
                                 <h1 className="md:text-2xl text-xl">{services[2].title}</h1>
                                 <p className="font-light text-xs py-2">{services[2].description}</p>
                             </div>
-                            <div className="rounded-full p-3 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45">
-                                <Link href={services[2].redUrl}>
-                                    <div className="text-white transition-transform duration-300 ease-in-out hover:scale-150">
-                                        <FaChevronRight />
-                                    </div>
-                                </Link>
-                            </div>
+                            <Link
+                                onMouseEnter={() => setHovered2(true)}
+                                onMouseLeave={() => setHovered2(false)}
+                                href={services[2].redUrl}
+                                className="p-1 text-white flex justify-center items-center"
+                            >
+                                <div
+                                    className={`relative w-[2.8rem] h-[2.8rem] rounded-full pl-2 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45 transition-transform duration-300 ease-in-out hover:shadow-lg`}
+                                >
+                                    <FaChevronRight
+                                        className={`w-8 h-8 font-light transition-transform duration-100 ease-in-out ${hovered2 ? 'scale-50 translate-x-2' : ''}`}
+                                    />
+                                </div>
+                            </Link>
                         </div>
                         <div className="ml-[4rem] md:w-full md:h-full overflow-hidden w-full h-full relative">
                             {services[2].imageUrl.map((url, index) => (
@@ -158,13 +186,20 @@ function Hya() {
                                 <h1 className="md:text-2xl text-xl">{services[3].title}</h1>
                                 <p className="font-light text-xs py-2">{services[3].description}</p>
                             </div>
-                            <div className="rounded-full p-3 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45">
-                                <Link href={services[3].redUrl}>
-                                    <div className="text-white transition-transform duration-300 ease-in-out hover:scale-150">
-                                        <FaChevronRight />
-                                    </div>
-                                </Link>
-                            </div>
+                            <Link
+                                onMouseEnter={() => setHovered3(true)}
+                                onMouseLeave={() => setHovered3(false)}
+                                href={services[3].redUrl}
+                                className="p-1 text-white flex justify-center items-center"
+                            >
+                                <div
+                                    className={`relative w-[2.8rem] h-[2.8rem] rounded-full pl-2 bg-gradient-to-r from-purple-600 to-blue-400 text-center flex justify-center items-center -rotate-45 transition-transform duration-300 ease-in-out hover:shadow-lg`}
+                                >
+                                    <FaChevronRight
+                                        className={`w-8 h-8 font-light transition-transform duration-100 ease-in-out ${hovered3 ? 'scale-50 translate-x-2' : ''}`}
+                                    />
+                                </div>
+                            </Link>
                         </div>
                         <div className="m-1 md:w-full md:h-full flex justify-center items-center overflow-hidden w-full h-full relative">
                             {services[3].imageUrl.map((url, index) => (
@@ -179,7 +214,7 @@ function Hya() {
                             ))}
                         </div>
                     </div>
-                    <a href="/sofa">
+                    <a href="/">
                         <h1 className="text-2xl">Explore More...</h1>
                     </a>
                 </div>
