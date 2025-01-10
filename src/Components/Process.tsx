@@ -39,7 +39,7 @@ const Process: React.FC = () => {
         }}
         onClick={() => toggleCard(index)}
       >
-        <h2 className={`text-2xl font-bold text-center relative py-3 ${expandedCard === index ? 'text-purple-600' : 'text-white'}`}>
+        <h2 className={`text-2xl font-bold text-center relative py-3 ${expandedCard === index ? 'text-purple-600 drop-shadow-xl' : 'text-white'}`}>
           {index + 1} - {step.title}
         </h2>
         <p

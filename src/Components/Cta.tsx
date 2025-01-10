@@ -12,7 +12,7 @@ function Cta() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         href="/contact"
-        className="px-6 py-3 text-white text-sm"
+        className="px-2 py-1 text-white text-sm"
       >
         <button
           className={`px-8 py-2 flex justify-center items-center rounded-full bg-gradient-to-r from-purple-800 to-purple-400 transition duration-300 ease-in-out ${

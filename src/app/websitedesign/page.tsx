@@ -19,7 +19,7 @@ function Services() {
                 />
             </div>
             <div className='w-full relative flex justify-center items-center text-justify md:my-40 md:px-40 p-10'>
-                <p className='w-4/5 md:text-5xl text-xl md:leading-[3.3rem] z-10'>
+                <p className='2xl:w-3/5 md:w-4/5 md:text-5xl text-xl md:leading-[3.3rem] z-10'>
                     <span className='font-bold md:border-none border-b-2 border-purple-600'>Design & Development,</span> Advertising, UI / UX,<span className='font-bold md:border-none border-b-2 border-purple-600'> Responsive Design, Front-End, Back-End,</span> E-Commerce, Hosting, <span className='font-bold md:border-none border-b-2 border-purple-600'>Maintenance and Support,</span> Analytics and Reporting, Social Media Integration
                 </p>
                 <div className='md:block hidden absolute top-15 mx-20'>
